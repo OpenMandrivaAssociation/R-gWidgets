@@ -1,27 +1,25 @@
-%bcond_without bootstrap
+%bcond_with bootstrap
 %global packname  gWidgets
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
 Version:          0.0_49
-Release:          1
+Release:          2
 Summary:          gWidgets API for building toolkit-independent, interactive GUIs
 Group:            Sciences/Mathematics
 License:          GPL (>= 2)
 URL:              http://cran.r-project.org/web/packages/%{packname}/index.html
 Source0:          http://cran.r-project.org/src/contrib/%{packname}_0.0-49.tar.gz
-Requires:         R-methods R-utils 
-%if %{with bootstrap}
-Requires:         R-cairoDevice
-%else
-Requires:         R-gWidgetsRGtk2 R-cairoDevice R-gWidgetstcltk 
+Requires:         R-methods R-utils R-cairoDevice
+%if %{without bootstrap}
+Requires:         R-gWidgetsRGtk2 R-gWidgetstcltk
 %endif
-BuildRequires:    R-devel Rmath-devel texlive-collection-latex R-methods R-utils
-%if %{with bootstrap}
-BuildRequires:    R-cairoDevice
-%else
-BuildRequires:    R-gWidgetsRGtk2 R-cairoDevice R-gWidgetstcltk 
+BuildRequires:    R-devel Rmath-devel texlive-collection-latex R-methods
+BuildRequires:    R-utils R-cairoDevice
+%if %{without bootstrap}
+BuildRequires:    R-gWidgetsRGtk2 R-cairoDevice R-gWidgetstcltk
 %endif
+BuildRequires:    x11-server-xvfb
 
 %description
 gWidgets provides a toolkit-independent API for building interactive GUIs.
@@ -41,7 +39,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 %if %{without bootstrap}
 %check
-%{_bindir}/R CMD check %{packname}
+xvfb-run %{_bindir}/R CMD check %{packname}
 %endif
 
 %files
