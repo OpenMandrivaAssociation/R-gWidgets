@@ -4,7 +4,7 @@
 
 Name:             R-%{packname}
 Version:          0.0_49
-Release:          2
+Release:          3
 Summary:          gWidgets API for building toolkit-independent, interactive GUIs
 Group:            Sciences/Mathematics
 License:          GPL (>= 2)
@@ -56,3 +56,15 @@ xvfb-run %{_bindir}/R CMD check %{packname}
 %{rlibdir}/%{packname}/images
 %{rlibdir}/%{packname}/install
 %{rlibdir}/%{packname}/tests
+
+
+%changelog
+* Wed Feb 22 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.0_49-2
++ Revision: 778915
+- Rebuild with proper dependencies
+
+* Mon Feb 20 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.0_49-1
++ Revision: 777630
+- Import R-$PKG
+- Import R-$PKG
+
