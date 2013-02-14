@@ -2,14 +2,16 @@
 %global packname  gWidgets
 %global rlibdir  %{_libdir}/R/library
 
+%define debug_package %{nil}
+
 Name:             R-%{packname}
-Version:          0.0_49
-Release:          3
+Version:          0.0.52
+Release:          1
 Summary:          gWidgets API for building toolkit-independent, interactive GUIs
 Group:            Sciences/Mathematics
 License:          GPL (>= 2)
 URL:              http://cran.r-project.org/web/packages/%{packname}/index.html
-Source0:          http://cran.r-project.org/src/contrib/%{packname}_0.0-49.tar.gz
+Source0:          http://cran.r-project.org/src/contrib/gWidgets_0.0-52.tar.gz
 Requires:         R-methods R-utils R-cairoDevice
 %if %{without bootstrap}
 Requires:         R-gWidgetsRGtk2 R-gWidgetstcltk
@@ -56,15 +58,3 @@ xvfb-run %{_bindir}/R CMD check %{packname}
 %{rlibdir}/%{packname}/images
 %{rlibdir}/%{packname}/install
 %{rlibdir}/%{packname}/tests
-
-
-%changelog
-* Wed Feb 22 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.0_49-2
-+ Revision: 778915
-- Rebuild with proper dependencies
-
-* Mon Feb 20 2012 Paulo Andrade <pcpa@mandriva.com.br> 0.0_49-1
-+ Revision: 777630
-- Import R-$PKG
-- Import R-$PKG
-
