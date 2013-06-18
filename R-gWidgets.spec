@@ -6,7 +6,7 @@
 
 Name:             R-%{packname}
 Version:          0.0.52
-Release:          1
+Release:          2
 Summary:          gWidgets API for building toolkit-independent, interactive GUIs
 Group:            Sciences/Mathematics
 License:          GPL (>= 2)
