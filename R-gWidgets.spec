@@ -10,7 +10,7 @@ Release:          2
 Summary:          gWidgets API for building toolkit-independent, interactive GUIs
 Group:            Sciences/Mathematics
 License:          GPL (>= 2)
-URL:              http://cran.r-project.org/web/packages/%{packname}/index.html
+URL:              https://cran.r-project.org/web/packages/%{packname}/index.html
 Source0:          http://cran.r-project.org/src/contrib/gWidgets_0.0-52.tar.gz
 Requires:         R-methods R-utils R-cairoDevice
 %if %{without bootstrap}
